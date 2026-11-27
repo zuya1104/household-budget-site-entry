@@ -1,0 +1,194 @@
+/* HomeLedger — household budget site. One stylesheet for every page:
+   warm paper background, deep green ink, terracotta accents, system type. */
+
+:root {
+  --paper: #f6f2e8;
+  --surface: #fffdf6;
+  --surface-2: #efe9d8;
+  --ink: #263024;
+  --ink-soft: #4c564a;
+  --muted: #75806f;
+  --line: #ddd5bf;
+  --green: #2e7d4f;
+  --green-deep: #1f5c39;
+  --green-soft: #dcead9;
+  --terra: #c96f3f;
+  --terra-soft: #f6e3d7;
+  --gold: #d9a441;
+  --gold-soft: #f7ecd4;
+  --red: #b3402e;
+  --red-soft: #f7ddd6;
+  --blue: #3a6ea5;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(38, 48, 36, 0.08), 0 4px 14px rgba(38, 48, 36, 0.06);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+a { color: var(--green-deep); }
+a:hover { color: var(--terra); }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.4em; letter-spacing: -0.01em; }
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0 0 0.75em; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.money { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pos { color: var(--green); }
+.neg { color: var(--red); }
+
+/* ---------- header & navigation ---------- */
+.site-header {
+  background: var(--green-deep);
+  color: #f2f0e4;
+  padding: 0.9rem 0 0;
+}
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.25rem; }
+.brand { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; text-decoration: none; }
+.brand span { color: var(--gold); }
+.tagline { color: #cfe0cf; font-size: 0.9rem; }
+.month-pill {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.main-nav {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.8rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.main-nav a {
+  color: #dcead9;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px 10px 0 0;
+  white-space: nowrap;
+}
+.main-nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+.main-nav a[aria-current="page"] { background: var(--paper); color: var(--ink); }
+
+/* ---------- layout ---------- */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.1rem; }
+.page { padding: 1.4rem 0 3rem; }
+.page-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1rem; margin-bottom: 1.1rem; }
+.page-head p { color: var(--ink-soft); margin: 0; }
+.grid { display: grid; gap: 1rem; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.span-2 { grid-column: span 2; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.2rem;
+}
+.card h2 { margin-bottom: 0.6rem; }
+.card h2 .more { float: right; font-size: 0.85rem; font-weight: 600; }
+
+/* ---------- stat tiles ---------- */
+.stat .label { color: var(--muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat .value { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; margin: 0.15rem 0; }
+.stat .sub { color: var(--ink-soft); font-size: 0.9rem; }
+
+/* ---------- progress bars ---------- */
+.bar { height: 10px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+.bar.over > i { background: var(--red); }
+.bar.warn > i { background: var(--gold); }
+.bar-row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9rem; margin-bottom: 0.3rem; }
+.bar-row b { font-variant-numeric: tabular-nums; }
+
+/* ---------- tables ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #faf7ee; }
+.cat-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.45rem; vertical-align: 1px; }
+
+/* ---------- donut & legend ---------- */
+.donut-wrap { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+.donut { flex: 0 0 auto; }
+.legend { list-style: none; margin: 0; padding: 0; font-size: 0.92rem; flex: 1 1 180px; }
+.legend li { display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.28rem 0; border-bottom: 1px dashed var(--line); }
+.legend li:last-child { border-bottom: none; }
+.legend .amt { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* ---------- forms & controls ---------- */
+form.inline-form { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: end; }
+.field { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); }
+.field input, .field select {
+  font: inherit; font-weight: 400; color: var(--ink);
+  padding: 0.5rem 0.6rem; border: 1px solid var(--line); border-radius: 9px;
+  background: #fff; min-width: 0;
+}
+.field input:focus, .field select:focus { outline: 2px solid var(--green); outline-offset: 1px; }
+button, .btn {
+  font: inherit; font-weight: 700; cursor: pointer;
+  background: var(--green); color: #fff; border: none; border-radius: 9px;
+  padding: 0.55rem 1rem; text-decoration: none; display: inline-block;
+}
+button:hover, .btn:hover { background: var(--green-deep); }
+button.ghost, .btn.ghost { background: var(--surface-2); color: var(--ink); }
+button.ghost:hover, .btn.ghost:hover { background: #e4dcc6; }
+button.small-btn { padding: 0.35rem 0.7rem; font-size: 0.85rem; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 0.9rem; }
+.toolbar .spacer { flex: 1; }
+.pill {
+  display: inline-block; font-size: 0.78rem; font-weight: 700; padding: 0.15rem 0.55rem;
+  border-radius: 999px; background: var(--green-soft); color: var(--green-deep);
+}
+.pill.over { background: var(--red-soft); color: var(--red); }
+.pill.warn { background: var(--gold-soft); color: #7a5a12; }
+.pill.neutral { background: var(--surface-2); color: var(--ink-soft); }
+
+/* ---------- bills, goals, insights ---------- */
+.bill { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px dashed var(--line); }
+.bill:last-child { border-bottom: none; }
+.bill .due { color: var(--muted); font-size: 0.85rem; }
+.goal-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+.goal-actions { display: flex; gap: 0.4rem; margin-top: 0.6rem; flex-wrap: wrap; }
+.insight { border-left: 4px solid var(--gold); background: var(--gold-soft); padding: 0.7rem 0.9rem; border-radius: 0 10px 10px 0; margin-bottom: 0.6rem; }
+.insight.green { border-color: var(--green); background: var(--green-soft); }
+.insight.red { border-color: var(--red); background: var(--red-soft); }
+.callout { background: var(--green-deep); color: #eef3ea; border-radius: var(--radius); padding: 1.1rem 1.2rem; }
+.callout h2 { color: #fff; }
+.callout a { color: var(--gold); }
+.site-footer { border-top: 1px solid var(--line); padding: 1.4rem 0 2rem; color: var(--muted); font-size: 0.88rem; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; justify-content: space-between; }
+
+/* ---------- phone layout ---------- */
+@media (max-width: 860px) {
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .span-2 { grid-column: auto; }
+  h1 { font-size: 1.55rem; }
+  .stat .value { font-size: 1.55rem; }
+  .month-pill { margin-left: 0; }
+  th.hide-phone, td.hide-phone { display: none; }
+}
+@media (max-width: 520px) {
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+  .card { padding: 0.95rem; }
+}

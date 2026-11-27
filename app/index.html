@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HomeLedger — Household Budget Dashboard</title>
+<meta name="description" content="HomeLedger shows the Alvarez household's November 2026 budget at a glance: income, spending by category, bills coming up and savings goals.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Home<span>Ledger</span></a>
+    <span class="tagline">The Alvarez household budget — plain numbers, no surprises.</span>
+    <span class="month-pill" data-month>November 2026</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html" aria-current="page">Dashboard</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="budgets.html">Budgets</a>
+      <a href="goals.html">Goals</a>
+      <a href="reports.html">Reports</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page">
+  <div class="page-head">
+    <h1>November at a glance</h1>
+    <p>Maya &amp; Daniel Alvarez, Sofia (9) and Leo (6) — two salaries, one plan, every dollar accounted for.</p>
+  </div>
+
+  <div class="grid grid-4" role="region" aria-label="Month totals">
+    <section class="card stat">
+      <div class="label">Income in November</div>
+      <div class="value money" id="stat-income">$7,850.00</div>
+      <div class="sub">Two salaries, four paydays</div>
+    </section>
+    <section class="card stat">
+      <div class="label">Spent in November</div>
+      <div class="value money" id="stat-spent">$5,495.02</div>
+      <div class="sub">49 transactions, 10 categories</div>
+    </section>
+    <section class="card stat">
+      <div class="label">Saved in November</div>
+      <div class="value money pos" id="stat-saved">$2,354.98</div>
+      <div class="sub" id="stat-saved-sub">30% of income kept</div>
+    </section>
+    <section class="card stat">
+      <div class="label">Plan remaining</div>
+      <div class="value money" id="stat-plan">−$85.02</div>
+      <div class="sub" id="stat-plan-note">$85.02 over the monthly plan</div>
+    </section>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:1rem">
+    <section class="card" aria-label="Spending by category">
+      <h2>Where the money went <a class="more" href="budgets.html">All budgets →</a></h2>
+      <div class="donut-wrap">
+        <div id="donut"></div>
+        <ul class="legend" id="legend"></ul>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Recent transactions">
+      <h2>Recent transactions <a class="more" href="transactions.html">Full ledger →</a></h2>
+      <table>
+        <thead><tr><th>Date</th><th>What</th><th>Category</th><th class="num">Amount</th></tr></thead>
+        <tbody id="recent-rows"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:1rem">
+    <section class="card" aria-label="Bills coming up">
+      <h2>Bills coming up</h2>
+      <div id="bill-list"></div>
+    </section>
+
+    <section class="card" aria-label="Savings goals">
+      <h2>Savings goals <a class="more" href="goals.html">All goals →</a></h2>
+      <div id="goal-snapshot"></div>
+    </section>
+  </div>
+
+  <section class="callout" style="margin-top:1rem">
+    <h2>How this household stays on plan</h2>
+    <p>Every payday is split the day it lands: the plan first, then the spending. Groceries run on a weekly shop, dining out has its own envelope, and whatever is left at month's end goes straight to the emergency fund. See the <a href="reports.html">six-month reports</a> for whether the plan is actually working.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HomeLedger — a household budget site. Figures are the Alvarez household's November 2026 plan.</span>
+    <span><a href="transactions.html">Transactions</a> · <a href="budgets.html">Budgets</a> · <a href="goals.html">Goals</a> · <a href="reports.html">Reports</a></span>
+  </div>
+</footer>
+
+<script type="module" src="dashboard.js"></script>
+</body>
+</html>

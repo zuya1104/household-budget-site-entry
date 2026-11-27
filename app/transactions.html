@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HomeLedger — Transactions</title>
+<meta name="description" content="Every transaction of the Alvarez household in November 2026, filterable by category or merchant, with a form to add one.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Home<span>Ledger</span></a>
+    <span class="tagline">The Alvarez household budget — plain numbers, no surprises.</span>
+    <span class="month-pill" data-month>November 2026</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html">Dashboard</a>
+      <a href="transactions.html" aria-current="page">Transactions</a>
+      <a href="budgets.html">Budgets</a>
+      <a href="goals.html">Goals</a>
+      <a href="reports.html">Reports</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page">
+  <div class="page-head">
+    <h1>Transactions</h1>
+    <p>Every dollar the household spent in <span data-month>November 2026</span>. Filter the list, or add a purchase of your own — the totals update everywhere at once.</p>
+  </div>
+
+  <section class="card" style="margin-bottom:1rem" aria-label="Add a transaction">
+    <h2>Add a transaction</h2>
+    <form id="add-form" class="inline-form">
+      <label class="field">Date<input type="date" id="new-date" value="2026-11-28" required></label>
+      <label class="field">Merchant<input type="text" id="new-merchant" placeholder="e.g. GreenMart" required></label>
+      <label class="field">Note<input type="text" id="new-note" placeholder="What was it for?"></label>
+      <label class="field">Category
+        <select id="new-category">
+          <option value="housing">Housing</option>
+          <option value="groceries">Groceries</option>
+          <option value="dining">Dining Out</option>
+          <option value="transport">Transport</option>
+          <option value="utilities">Utilities</option>
+          <option value="health">Health</option>
+          <option value="kids">Kids &amp; School</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="shopping">Shopping</option>
+          <option value="personal">Personal &amp; Other</option>
+        </select>
+      </label>
+      <label class="field">Amount ($)<input type="number" id="new-amount" min="0.01" step="0.01" placeholder="0.00" required></label>
+      <button type="submit">Add transaction</button>
+    </form>
+    <p class="small" id="add-confirm" role="status"></p>
+  </section>
+
+  <section class="card" aria-label="Transaction ledger">
+    <div class="toolbar">
+      <label class="field">Category<select id="filter-category"></select></label>
+      <label class="field">Search<input type="search" id="filter-search" placeholder="Merchant or note…"></label>
+      <span class="spacer"></span>
+      <span class="small muted" id="tx-count"></span>
+    </div>
+    <p class="small muted" id="tx-total"></p>
+    <table>
+      <thead><tr><th>Date</th><th>What</th><th>Category</th><th class="num">Amount</th></tr></thead>
+      <tbody id="tx-rows"></tbody>
+    </table>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HomeLedger — a household budget site. Figures are the Alvarez household's November 2026 plan.</span>
+    <span><a href="index.html">Dashboard</a> · <a href="budgets.html">Budgets</a> · <a href="goals.html">Goals</a> · <a href="reports.html">Reports</a></span>
+  </div>
+</footer>
+
+<script type="module" src="transactions.js"></script>
+</body>
+</html>

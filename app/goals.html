@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HomeLedger — Savings Goals</title>
+<meta name="description" content="What the Alvarez household is saving toward: an emergency fund, a family vacation and a new car down payment, with live progress.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Home<span>Ledger</span></a>
+    <span class="tagline">The Alvarez household budget — plain numbers, no surprises.</span>
+    <span class="month-pill" data-month>November 2026</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html">Dashboard</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="budgets.html">Budgets</a>
+      <a href="goals.html" aria-current="page">Goals</a>
+      <a href="reports.html">Reports</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page">
+  <div class="page-head">
+    <h1>Savings goals</h1>
+    <p>What the household is saving toward — and how far along each goal is. Tap a button to move money into a goal; the progress and the months-to-go update at once.</p>
+  </div>
+
+  <section class="card" style="margin-bottom:1rem" aria-label="Goals summary">
+    <p id="goal-summary" style="margin:0"></p>
+  </section>
+
+  <div id="goal-list"></div>
+
+  <section class="callout">
+    <h2>The rule behind the goals</h2>
+    <p>Whatever is left at the end of the month is split by the same rule every time: half to the emergency fund until it is full, then a quarter each to the vacation and the car. The emergency fund comes first because a broken car or a lost week's pay should never become debt — see <a href="reports.html">reports</a> for how fast the savings are actually growing.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HomeLedger — a household budget site. Figures are the Alvarez household's November 2026 plan.</span>
+    <span><a href="index.html">Dashboard</a> · <a href="transactions.html">Transactions</a> · <a href="budgets.html">Budgets</a> · <a href="reports.html">Reports</a></span>
+  </div>
+</footer>
+
+<script type="module" src="goals.js"></script>
+</body>
+</html>
